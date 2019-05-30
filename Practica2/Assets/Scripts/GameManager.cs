@@ -14,11 +14,13 @@ public class GameManager : MonoBehaviour
     {
         if (instance == null)
         {
+            print("A Game Manager has been created");
             instance = this;
         }
-        else
+        else if (instance != null)
         {
-            Destroy(this.gameObject);
+            Destroy(gameObject);
+            print("A copy of Game Manager has been destroyed");
         }
 
         DontDestroyOnLoad(gameObject);
@@ -65,5 +67,11 @@ public class GameManager : MonoBehaviour
     public void ChangeScene(string sceneName)
     {
         SceneManager.LoadScene(sceneName);
+    }
+
+    public void PlayerWinGame(bool gameStatus)
+    {
+        playerLives = 3;
+        uIManager.FinishGame(gameStatus);
     }
 }

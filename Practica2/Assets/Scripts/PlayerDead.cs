@@ -17,9 +17,9 @@ public class PlayerDead : MonoBehaviour
             transform.position = spawnPoint.position;
         else
         {
-            print("GameOver");
-            GameManager.instance.ChangeScene("10_Game");
+            GameManager.instance.PlayerWinGame(false);
             Destroy(gameObject);
         }
+
     }
 }

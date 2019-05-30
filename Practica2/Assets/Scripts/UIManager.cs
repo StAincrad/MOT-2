@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public Text scoringText;
     public Image[] lives;
+    public Text scoringText;
+    public Text FinishText;
+    public GameObject FinishPanel;
 
 	void Start ()
     {
@@ -29,6 +31,23 @@ public class UIManager : MonoBehaviour
     public void LifeLost()
     {
         lives[GameManager.instance.playerLives].enabled = false;
+    }
+
+    public void FinishGame(bool playerWins)
+    {
+        if (FinishPanel == null)
+        {
+            GameManager.instance.ChangeScene("10_Menu");
+            return;
+        }
+
+        FinishPanel.SetActive(true);
+
+        if (playerWins )
+            FinishText.text = "HAS GANADO!!!";
+        else
+            FinishText.text = "HAS PERDIDO!!";
+
     }
 
 
