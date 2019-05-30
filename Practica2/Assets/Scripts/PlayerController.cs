@@ -15,19 +15,19 @@ public class PlayerController : MonoBehaviour
 
     void Update ()
     {
-        if (Input.GetKeyDown(jump) && rb.velocity.y == 0.0f)
+        if (Input.GetKeyDown(jump) && Mathf.Abs(rb.velocity.y) <= 0.0f)
         {
             MakeJump();
         }
-        if (Input.GetKey(left) && Mathf.Abs(rb.velocity.x) <= speedLimit)
+        if (Input.GetKey(left) && CheckSpeedLimits())
         {
             GoLeft();
         }
-        if (Input.GetKey(right) && Mathf.Abs(rb.velocity.x) <= speedLimit)
+        if (Input.GetKey(right) && CheckSpeedLimits())
         {
             GoRight();
         }
-        if (Input.GetKeyUp(left) || Input.GetKeyUp(right) && rb.velocity.y <= 0.0f)
+        if (Input.GetKeyUp(left) || Input.GetKeyUp(right) && Mathf.Abs(rb.velocity.y) <= 0.0f)
         {
             StopVelocity();
         }
@@ -63,6 +63,15 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void StopVelocity()
     {
-        rb.velocity = new Vector2(0.0f, rb.velocity.y);
+        rb.velocity = new Vector2(0f, rb.velocity.y);
+    }
+
+    /// <summary>
+    /// Check if player exceeds speedLimit
+    /// </summary>
+    /// <returns>True if player exceeds speed limits</returns>
+    private bool CheckSpeedLimits()
+    {
+        return Mathf.Abs(rb.velocity.x) <= speedLimit;
     }
 }
