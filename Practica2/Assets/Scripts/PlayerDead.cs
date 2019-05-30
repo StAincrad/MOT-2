@@ -18,6 +18,7 @@ public class PlayerDead : MonoBehaviour
         else
         {
             print("GameOver");
+            GameManager.instance.ChangeScene("10_Game");
             Destroy(gameObject);
         }
     }

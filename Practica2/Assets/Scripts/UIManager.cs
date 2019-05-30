@@ -23,6 +23,9 @@ public class UIManager : MonoBehaviour
         scoringText.text = points.ToString();
     }
 
+    /// <summary>
+    /// Disable a full life
+    /// </summary>
     public void LifeLost()
     {
         lives[GameManager.instance.playerLives].enabled = false;
