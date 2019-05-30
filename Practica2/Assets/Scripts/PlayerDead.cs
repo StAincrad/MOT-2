@@ -7,10 +7,18 @@ public class PlayerDead : MonoBehaviour
     public Transform spawnPoint;
 
     /// <summary>
-    /// Move player position to spawnPoint position
+    /// Move player position to spawnPoint position if player have lives or destroy him if he has no life left
     /// </summary>
     public void OnDead()
     {
-        transform.position = spawnPoint.position;
+        bool PlayerALive = GameManager.instance.PlayerLoseLife();
+
+        if (!PlayerALive)
+            transform.position = spawnPoint.position;
+        else
+        {
+            print("GameOver");
+            Destroy(gameObject);
+        }
     }
 }
