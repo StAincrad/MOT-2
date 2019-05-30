@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/10_Game.unity
     guid: 24c44730e2809124c916a742e5553144
+  - enabled: 1
+    path: Assets/Scenes/Def_Game.unity
+    guid: ccfe47f63cf2e4e429ba0666fde58cff
+  - enabled: 1
+    path: Assets/Scenes/Def_Menu.unity
+    guid: 2694568fedd0b9048b785a7d25d5b457
   m_configObjects: {}
