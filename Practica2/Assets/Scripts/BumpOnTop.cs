@@ -5,14 +5,18 @@ public class BumpOnTop : MonoBehaviour
 {
     public int points;
 
+    /// <summary>
+    /// Check if the direction of collision is
+    /// </summary>
+    /// <param name="collision"></param>
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.DrawLine(collision.GetContact(0).point, transform.localPosition, Color.red,1f);
 
-        if (collision.GetContact(0).normal == Vector2.down)
+        if (collision.GetContact(0).normal == -(Vector2)transform.up)
         {
             GameManager.instance.AddPoints(points);
-            collision.collider.GetComponent<Knockback>().PlayKnockback();
+            collision.gameObject.GetComponent<Knockback>().PlayKnockback();
             Destroy(gameObject);
         }
 
