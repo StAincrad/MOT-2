@@ -6,7 +6,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
     public int playerPoints { get; private set; }
-    public int playerLives { get; private set; } 
+    public int playerLives { get; private set; }
+    private UIManager uIManager;
 
     private void Awake()
     {
@@ -34,6 +35,7 @@ public class GameManager : MonoBehaviour
     public void AddPoints(int amount)
     {
         playerPoints += amount;
+        uIManager.UpdateScore(playerPoints);
     }
 
     /// <summary>
@@ -44,6 +46,15 @@ public class GameManager : MonoBehaviour
     {
         playerLives--;
         print("Lives :"+playerLives);
+        uIManager.LifeLost();
         return playerLives <= 0;
+    }
+    /// <summary>
+    /// Pass the reference of UIManager to gameManager
+    /// </summary>
+    /// <param name="currUIManager"></param>
+    public void PassUIManagerReference(UIManager currUIManager)
+    {
+        uIManager = currUIManager;
     }
 }
