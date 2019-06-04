@@ -50,8 +50,8 @@ public class UIManager : MonoBehaviour
 
         FinishPanel.SetActive(true);
 
-        if (playerWins )
-            FinishText.text = "HAS GANADO!!!";
+        if (playerWins) { 
+            FinishText.text = "HAS GANADO!!!" + "\nPuntos: " + GameManager.instance.playerPoints;}
         else
             FinishText.text = "HAS PERDIDO!!";
 
