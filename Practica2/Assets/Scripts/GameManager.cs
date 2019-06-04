@@ -32,22 +32,20 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Add points to player
+    /// Add points to marker
     /// </summary>
     /// <param name="amount">Amount of points to add</param>
     public void AddPoints(int amount)
     {
         playerPoints += amount;
-
         print("Added points: " + amount);
         print("Total Points: " + playerPoints);
-
        if (uIManager != null)
             uIManager.UpdateScore(playerPoints);
     }
 
     /// <summary>
-    /// Subtract one life to player and check if the player is still alive
+    /// Subtract one life to player and check if the player stills alive
     /// </summary>
     /// <returns>True if player is alive, false if player is dead</returns>
     public bool PlayerLoseLife()

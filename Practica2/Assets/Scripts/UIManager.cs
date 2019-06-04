@@ -33,6 +33,13 @@ public class UIManager : MonoBehaviour
         lives[GameManager.instance.playerLives].enabled = false;
     }
 
+    /// <summary>
+    /// When finish the game change the scene if the current scene
+    /// is '10_Game', but then it shows up a panel with the info.
+    /// </summary>
+    /// <param name="playerWins">
+    /// Indicates if the player has won the game
+    /// </param>
     public void FinishGame(bool playerWins)
     {
         if (FinishPanel == null)
