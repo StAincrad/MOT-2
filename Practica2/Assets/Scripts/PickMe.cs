@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PickMe : MonoBehaviour
 {
-    public string playerTag;
     public int points;
 
     /// <summary>
@@ -13,7 +12,7 @@ public class PickMe : MonoBehaviour
     /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(playerTag))
+        if (collision.CompareTag("Player"))
         {
             GameManager.instance.AddPoints(points);
             Destroy(gameObject);

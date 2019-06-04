@@ -38,7 +38,9 @@ public class GameManager : MonoBehaviour
     public void AddPoints(int amount)
     {
         playerPoints += amount;
-        uIManager.UpdateScore(playerPoints);
+        print("Added points: " + amount);
+        print("Total Points: " + playerPoints);
+       // uIManager.UpdateScore(playerPoints);
     }
 
     /// <summary>

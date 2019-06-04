@@ -4,9 +4,9 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    public KeyCode left, right, jump;
-    public float jumpForce, speed, speedLimit;
+    public float jumpForce, speed;
     private Rigidbody2D rb;
+
 	void Start ()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -15,19 +15,19 @@ public class PlayerController : MonoBehaviour
 
     void Update ()
     {
-        if (Input.GetKeyDown(jump) && Mathf.Abs(rb.velocity.y) <= 0.0f)
+        if (Input.GetKey(KeyCode.Space) && Mathf.Abs(rb.velocity.y) <= 0.0f)
         {
             MakeJump();
         }
-        if (Input.GetKey(left) && CheckSpeedLimits())
+        if (Input.GetKey(KeyCode.A))
         {
             GoLeft();
         }
-        if (Input.GetKey(right) && CheckSpeedLimits())
+        if (Input.GetKey(KeyCode.D))
         {
             GoRight();
         }
-        if (Input.GetKeyUp(left) || Input.GetKeyUp(right) && Mathf.Abs(rb.velocity.y) <= 0.0f)
+        if (Input.GetKeyUp(KeyCode.A) || Input.GetKeyUp(KeyCode.D) && Mathf.Abs(rb.velocity.y) <= 0.0f)
         {
             StopVelocity();
         }
@@ -35,7 +35,7 @@ public class PlayerController : MonoBehaviour
 	}
 
     /// <summary>
-    /// Make player jump
+    /// It do player jump
     /// </summary>
     private void MakeJump()
     {
@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Make player go to the left
+    /// It do player going to the left
     /// </summary>
     private void GoLeft()
     {
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     }
 
     /// <summary>
-    /// Make player go to the right
+    /// It do player going to the right
     /// </summary>
     private void GoRight()
     {
@@ -64,14 +64,5 @@ public class PlayerController : MonoBehaviour
     private void StopVelocity()
     {
         rb.velocity = new Vector2(0f, rb.velocity.y);
-    }
-
-    /// <summary>
-    /// Check if player exceeds speedLimit
-    /// </summary>
-    /// <returns>True if player exceeds speed limits</returns>
-    private bool CheckSpeedLimits()
-    {
-        return Mathf.Abs(rb.velocity.x) <= speedLimit;
     }
 }
