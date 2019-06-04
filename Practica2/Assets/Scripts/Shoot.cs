@@ -21,6 +21,4 @@ public class Shoot : MonoBehaviour
     {
         Instantiate(BulletInstance,transform.position, Quaternion.Euler(transform.eulerAngles), bulletPool);
     }
-
-    
 }

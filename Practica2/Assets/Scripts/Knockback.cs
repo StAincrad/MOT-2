@@ -14,12 +14,14 @@ public class Knockback : MonoBehaviour
     }
 
     /// <summary>
-    /// Adds a impulse negative in funcion of own velocity
+    /// Adds a negative impulse in function of the lineal velocity
     /// </summary>
-    public void PlayKnockback()
+    /// <param name="dir"> 
+    /// Direction of the knockback
+    /// </param>
+    public void PlayKnockback(Vector2 dir)
     {
-        Vector2 dirKnockback = new Vector2(-rb.velocity.x, 1f);
         rb.velocity = Vector2.zero;
-        rb.AddForce(dirKnockback.normalized * knockbackForce, ForceMode2D.Impulse);
+        rb.AddForce(dir.normalized * knockbackForce, ForceMode2D.Impulse);
     }
 }
