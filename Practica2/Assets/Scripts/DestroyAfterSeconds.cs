@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class DestroyAfterSeconds : MonoBehaviour
 {
-    public float secods;
+    public float seconds;
     private void Start()
     {
-        Destroy(gameObject,secods);
+        Destroy(gameObject,seconds);
     }
 }
