@@ -38,9 +38,12 @@ public class GameManager : MonoBehaviour
     public void AddPoints(int amount)
     {
         playerPoints += amount;
+
         print("Added points: " + amount);
         print("Total Points: " + playerPoints);
-       // uIManager.UpdateScore(playerPoints);
+
+       if (uIManager != null)
+            uIManager.UpdateScore(playerPoints);
     }
 
     /// <summary>
@@ -51,8 +54,11 @@ public class GameManager : MonoBehaviour
     {
         playerLives--;
         print("Lives :"+playerLives);
-        uIManager.LifeLost();
-        return playerLives <= 0;
+
+        if (uIManager != null)
+            uIManager.LifeLost();
+
+        return playerLives > 0;
     }
     /// <summary>
     /// Pass the reference of UIManager to gameManager
@@ -74,6 +80,6 @@ public class GameManager : MonoBehaviour
     public void PlayerWinGame(bool gameStatus)
     {
         playerLives = 3;
-        uIManager.FinishGame(gameStatus);
+        if (uIManager != null) uIManager.FinishGame(gameStatus);
     }
 }

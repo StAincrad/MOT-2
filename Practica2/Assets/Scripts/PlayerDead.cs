@@ -13,7 +13,7 @@ public class PlayerDead : MonoBehaviour
     {
         bool PlayerALive = GameManager.instance.PlayerLoseLife();
 
-        if (!PlayerALive)
+        if (PlayerALive)
             transform.position = spawnPoint.position;
         else
         {

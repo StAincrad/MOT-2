@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class DeadZone : MonoBehaviour
 {
-    public string playerTag;
     /// <summary>
     /// Call OnDead
     /// </summary>
     /// <param name="collision"></param>
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(playerTag))
+        if (collision.CompareTag("Player"))
         {
             collision.GetComponent<PlayerDead>().OnDead();
         }

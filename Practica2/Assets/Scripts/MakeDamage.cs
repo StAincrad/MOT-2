@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class MakeDamage : MonoBehaviour
 {
-    public string playerTag;
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(playerTag))
+        if (collision.CompareTag("Player"))
         {
             collision.GetComponent<PlayerDead>().OnDead();
             Destroy(gameObject);

@@ -602,12 +602,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2cc20e8420001942b831be8b8275f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  left: 97
-  right: 100
-  jump: 32
   jumpForce: 5
   speed: 5
-  speedLimit: 8
 --- !u!4 &266979115
 Transform:
   m_ObjectHideFlags: 0
@@ -784,7 +780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b92bd7e09cd6c4790cc6931036099d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTag: Player
 --- !u!61 &1802652045
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -977,6 +972,11 @@ Prefab:
     - target: {fileID: 4922176638829052, guid: ec87fd93976c5b644bc60ad4260accce, type: 2}
       propertyPath: m_RootOrder
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114290309938265492, guid: ec87fd93976c5b644bc60ad4260accce,
+        type: 2}
+      propertyPath: secods
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec87fd93976c5b644bc60ad4260accce, type: 2}
