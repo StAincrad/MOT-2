@@ -4,7 +4,7 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerController : MonoBehaviour
 {
-    public float jumpForce, speed;
+    public float jumpForce, speed, speedLimit;
     private Rigidbody2D rb;
 
 	void Start ()
@@ -47,7 +47,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void GoLeft()
     {
-        rb.AddForce(Vector2.left * speed, ForceMode2D.Force);
+        if (CheckVelocity())
+            rb.AddForce(Vector2.left * speed, ForceMode2D.Force);
     }
 
     /// <summary>
@@ -55,7 +56,8 @@ public class PlayerController : MonoBehaviour
     /// </summary>
     private void GoRight()
     {
-        rb.AddForce(Vector2.right * speed, ForceMode2D.Force);
+        if (CheckVelocity())
+            rb.AddForce(Vector2.right * speed, ForceMode2D.Force);
     }
 
     /// <summary>
@@ -64,5 +66,14 @@ public class PlayerController : MonoBehaviour
     private void StopVelocity()
     {
         rb.velocity = new Vector2(0f, rb.velocity.y);
+    }
+
+    /// <summary>
+    /// Check if the player's speed is greater or less than the limit
+    /// </summary>
+    /// <returns>True if player´s velocity is less than limit</returns>
+    private bool CheckVelocity()
+    {
+        return Mathf.Abs(rb.velocity.x) <= speedLimit;
     }
 }

@@ -5,7 +5,6 @@ public class BumpOnTop : MonoBehaviour
 {
     public int points;
     private Rigidbody2D rb;
-    Vector2 dirKnockback;
 
     private void Awake()
     {
@@ -14,19 +13,11 @@ public class BumpOnTop : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.DrawLine(collision.GetContact(0).point, transform.localPosition, Color.red,1f);
-
-        if (collision.GetContact(0).normal == -(Vector2)transform.up)
+        if (Vector2.Angle(transform.right, collision.GetContact(0).normal).Equals(90f) && collision.gameObject.CompareTag("Player"))
         {
+            collision.gameObject.GetComponent<Knockback>().PlayKnockback(new Vector2(-rb.velocity.x, collision.GetContact(0).normalImpulse));
             GameManager.instance.AddPoints(points);
-
-            dirKnockback = new Vector2(-rb.velocity.x, 1f);
-            collision.gameObject.GetComponent<Knockback>().PlayKnockback(dirKnockback);
-
             Destroy(gameObject);
         }
-
     }
-
-
 }

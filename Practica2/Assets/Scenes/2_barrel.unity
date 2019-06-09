@@ -520,6 +520,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 5
   speed: 5
+  speedLimit: 6
 --- !u!4 &1606842619
 Transform:
   m_ObjectHideFlags: 0

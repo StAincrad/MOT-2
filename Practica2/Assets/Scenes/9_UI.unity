@@ -8166,7 +8166,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &797191632
 GameObject:
@@ -8683,11 +8683,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1929394947}
-  - component: {fileID: 1929394946}
   - component: {fileID: 1929394945}
   - component: {fileID: 1929394944}
   - component: {fileID: 1929394943}
   - component: {fileID: 1929394942}
+  - component: {fileID: 1929394946}
   m_Layer: 9
   m_Name: Player
   m_TagString: Player
@@ -8732,6 +8732,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 7
   speed: 5
+  speedLimit: 6
 --- !u!50 &1929394945
 Rigidbody2D:
   serializedVersion: 4
@@ -8752,8 +8753,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &1929394946
-BoxCollider2D:
+--- !u!70 &1929394946
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -8764,19 +8765,9 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.104836226}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 0.7173972}
-  m_EdgeRadius: 0
+  m_Offset: {x: -0.0000000098324335, y: -0.08248044}
+  m_Size: {x: 1.0000002, y: 0.79005265}
+  m_Direction: 1
 --- !u!4 &1929394947
 Transform:
   m_ObjectHideFlags: 0

@@ -220,6 +220,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   jumpForce: 5
   speed: 5
+  speedLimit: 6
 --- !u!4 &310314968
 Transform:
   m_ObjectHideFlags: 0
@@ -819,7 +820,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3b92bd7e09cd6c4790cc6931036099d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTag: Player
 --- !u!61 &1906053636
 BoxCollider2D:
   m_ObjectHideFlags: 0
